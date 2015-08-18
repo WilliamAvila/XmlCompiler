@@ -109,6 +109,7 @@ public class LexerXml {
                     symbol = getNextSymbol();
                     lexeme += symbol;
                     if(symbol == '>') {
+                        symbol = getNextSymbol();
                         return new Token(TokenType.SlashGreaterThan, lexeme);
                     }
 

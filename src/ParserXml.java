@@ -8,6 +8,7 @@ public class ParserXml {
     public ParserXml(LexerXml lex){
         this.lexer = lex;
         this.consumeToken();
+        System.out.println(currentToken.toString());
     }
 
     public void consumeToken(){
@@ -48,10 +49,7 @@ public class ParserXml {
     }
 
     private void NodoP() throws parserException {
-        if(currentToken.type == TokenType.Slash){
-            consumeToken();
-            if(currentToken.type != TokenType.GreaterThan)
-                throw new parserException("Se esperaba >");
+        if(currentToken.type == TokenType.SlashGreaterThan){
             consumeToken();
         }else if(currentToken.type == TokenType.GreaterThan){
             consumeToken();
@@ -59,13 +57,12 @@ public class ParserXml {
             ListaNodos();
 
 
-            if(currentToken.type != TokenType.LessThan)
-                throw new parserException("Se esperaba <");
+            if(currentToken.type != TokenType.LessThanSlash)
+                throw new parserException("Se esperaba </");
+
             consumeToken();
 
-            if(currentToken.type != TokenType.Slash)
-                throw  new parserException("Se esperaba /");
-            consumeToken();
+
 
             if(currentToken.type != TokenType.Id)
                 throw  new parserException("Se esperaba ID");

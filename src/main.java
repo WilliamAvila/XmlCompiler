@@ -12,29 +12,29 @@ public class main {
 
 
         LexerXml  lex = new LexerXml(input);
-               Token  currentToken = lex.getXmlToken();
-               try{
-               while (currentToken.type != TokenType.End)
-               {
-                   System.out.println(currentToken.toString());
-                   currentToken = lex.getXmlToken();
-               }
-                   System.out.println(currentToken.toString());
-
-                }catch(Exception e){
-                   System.out.println("Lexical Exception Caught");
-                   System.out.printf(e.getMessage());
-               }
-
-
-//        ParserXml parser = new ParserXml(lex);
-//        try{
-//            parser.Parse();
+//               Token  currentToken = lex.getXmlToken();
+//               try{
+//                   while (currentToken.type != TokenType.End)
+//                   {
+//                       System.out.println(currentToken.toString());
+//                       currentToken = lex.getXmlToken();
+//                   }
+//                         System.out.println(currentToken.toString());
 //
-//        }catch (parserException e){
-//            System.out.println(e.getMessage());
-//        }catch (Exception e){
-//            System.out.println(e.getMessage());
-//        }
+//                }catch(Exception e){
+//                   System.out.println("Lexical Exception Caught");
+//                   System.out.printf(e.getMessage());
+//               }
+
+
+        ParserXml parser = new ParserXml(lex);
+        try{
+            parser.Parse();
+
+        }catch (parserException e){
+            System.out.println(e.getMessage());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
