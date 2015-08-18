@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="XmlCompiler:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/XmlCompiler_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="XmlCompiler/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
